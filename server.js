@@ -18,7 +18,7 @@ startServer(() => {
 
 async function run() {
   try {
-    startWorkerListening();
+    await startWorkerListening();
   } catch (err) {
     logError('Server.js', err);
   }
