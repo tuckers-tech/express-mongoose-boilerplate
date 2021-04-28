@@ -18,15 +18,15 @@ startServer(() => {
 
 async function run() {
   try {
-    await startWorkerListening();
+    let app = await initializeService(getDBConnectionURI());
+
+    await startWorkerListening(app);
   } catch (err) {
     logError('Server.js', err);
   }
 }
 
-async function startWorkerListening() {
-  let app = await initializeService(getDBConnectionURI());
-
+async function startWorkerListening(app) {
   startLogger(app);
   setProcessEventHandlers();
 
