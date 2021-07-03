@@ -4,7 +4,10 @@ const userSchema = new mongoose.Schema(
   {
     name: String,
   },
-  { collection: 'Users' },
+  {
+    collection: 'Users',
+    optimisticConcurrency: true,
+  },
 );
 
 module.exports = mongoose.model('User', userSchema);
